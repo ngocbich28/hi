@@ -1,0 +1,1610 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#81D8D0">
+<title>Skin Lab | Your skin is our planet</title>
+
+<style>
+:root {
+  --pink: #F4B8CB;
+  --pink-light: #FFF0F5;
+  --pink-dark: #B95E7D;
+  --tiffany: #81D8D0;
+  --tiffany-light: #E3F9F5;
+  --tiffany-dark: #267F79;
+  --cream: #FFFCFA;
+  --ink: #293B3A;
+  --muted: #71817E;
+  --border: #E2EEEB;
+  --white: #FFFFFF;
+  --shadow: 0 12px 35px rgba(42, 80, 72, .07);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+button, input, select, textarea { font: inherit; }
+
+button, a { -webkit-tap-highlight-color: transparent; }
+
+a { color: inherit; }
+
+button { cursor: pointer; }
+
+.topbar {
+  padding: 10px 15px;
+  text-align: center;
+  background: var(--tiffany);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 17px 7%;
+  background: rgba(255,255,255,.96);
+  border-bottom: 1px solid var(--border);
+  backdrop-filter: blur(12px);
+}
+
+.brand {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.brand span { color: var(--pink-dark); }
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-size: 13px;
+}
+
+nav a { text-decoration: none; }
+
+nav a:hover { color: var(--tiffany-dark); }
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 21px;
+  border: none;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 750;
+  font-size: 13px;
+  transition: transform .2s, opacity .2s;
+}
+
+.button:hover { transform: translateY(-2px); }
+
+.primary { background: var(--ink); color: white; }
+.secondary { background: var(--tiffany); color: var(--ink); }
+.pink-button { background: var(--pink); color: var(--ink); }
+.full { width: 100%; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 38px;
+  align-items: center;
+  padding: 70px 8%;
+  background: linear-gradient(120deg, #FFF0F5, #E3F9F5);
+}
+
+.eyebrow {
+  color: var(--tiffany-dark);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 19px 0;
+  font-size: clamp(40px, 5vw, 67px);
+  line-height: 1.07;
+  letter-spacing: -2px;
+}
+
+h1 em {
+  color: var(--pink-dark);
+  font-style: normal;
+}
+
+.hero p {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.hero-art {
+  position: relative;
+  min-height: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 48% 48% 25px 25px;
+  background: linear-gradient(145deg, #81D8D0, #F5C5D4);
+  overflow: hidden;
+}
+
+.hero-art .big-emoji {
+  font-size: clamp(80px, 12vw, 140px);
+  filter: drop-shadow(0 15px 15px #476f6622);
+}
+
+.art-note {
+  position: absolute;
+  bottom: 22px;
+  right: 20px;
+  padding: 11px 15px;
+  border-radius: 12px;
+  background: white;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.section {
+  max-width: 1160px;
+  padding: 65px 24px;
+  margin: auto;
+}
+
+.section-heading {
+  max-width: 700px;
+  text-align: center;
+  margin: 0 auto 30px;
+}
+
+.section-heading h2 {
+  margin: 13px 0;
+  font-size: clamp(27px, 4vw, 39px);
+  letter-spacing: -.7px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.search-section {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 25px;
+  padding: 30px;
+  box-shadow: var(--shadow);
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 10px 10px 18px;
+  border: 1px solid #D7E7E2;
+  border-radius: 16px;
+  background: white;
+}
+
+.search-form:focus-within {
+  border-color: var(--tiffany-dark);
+  box-shadow: 0 0 0 4px #81D8D033;
+}
+
+.search-icon {
+  color: var(--tiffany-dark);
+  font-size: 26px;
+}
+
+.search-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 9px 0;
+  border: 0;
+  outline: none;
+  color: var(--ink);
+  background: transparent;
+  font-size: 14px;
+}
+
+.search-form button {
+  flex-shrink: 0;
+  padding: 13px 22px;
+  border: 0;
+  border-radius: 11px;
+  background: var(--tiffany);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.search-form button:hover { background: var(--pink); }
+
+.suggestions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 17px 0 26px;
+}
+
+.suggestions span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.chip {
+  padding: 8px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: white;
+  color: var(--tiffany-dark);
+  font-size: 12px;
+}
+
+.chip:hover, .chip:focus { background: var(--tiffany-light); }
+
+.results-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 16px;
+}
+
+.results-heading h3 { margin: 0; }
+
+.results-heading p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 16px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: white;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.product-art {
+  display: grid;
+  place-items: center;
+  min-height: 125px;
+  margin-bottom: 14px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, var(--tiffany-light), var(--pink-light));
+  font-size: 49px;
+}
+
+.product-card h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.product-card p {
+  margin: 4px 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.product-price {
+  margin-top: auto;
+  padding-top: 12px;
+  color: var(--tiffany-dark);
+  font-size: 16px;
+  font-weight: 850;
+}
+
+.product-card .button {
+  margin-top: 13px;
+  padding: 11px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.placeholder, .empty {
+  padding: 32px 18px;
+  border-radius: 15px;
+  background: #F7FBFA;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+.placeholder span { font-size: 35px; }
+
+.small-note {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.card {
+  padding: 26px;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+.card h3 { margin-top: 0; }
+
+.form-intro {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.field { margin: 21px 0; }
+
+.field > label, .field legend {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.field select, .field input[type="text"],
+.field input[type="number"], .field textarea {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #D9E7E3;
+  border-radius: 11px;
+  background: white;
+  color: var(--ink);
+  outline: none;
+}
+
+.field select:focus, .field textarea:focus,
+.field input:focus {
+  border-color: var(--tiffany-dark);
+  box-shadow: 0 0 0 3px #81D8D033;
+}
+
+fieldset {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 9px;
+}
+
+.check-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #FAFCFB;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.check-option input {
+  margin-top: 2px;
+  accent-color: var(--tiffany-dark);
+}
+
+.help {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.consent input { margin-top: 4px; }
+
+.status {
+  min-height: 22px;
+  margin-bottom: 0;
+  color: var(--tiffany-dark);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.profile-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 15px 0;
+}
+
+.profile-tag {
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: var(--pink-light);
+  color: #99536D;
+  font-size: 11px;
+}
+
+.result-banner {
+  margin: 20px 0;
+  padding: 21px;
+  border-radius: 16px;
+  background: linear-gradient(130deg, var(--tiffany-light), var(--pink-light));
+}
+
+.result-banner h3 { line-height: 1.5; }
+
+.result-banner p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 17px;
+}
+
+.benefit-card {
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: white;
+}
+
+.benefit-card .emoji { font-size: 31px; }
+
+.benefit-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 25px;
+  padding: 35px;
+  border-radius: 24px;
+  background: var(--tiffany-light);
+}
+
+.contact-box p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+footer {
+  padding: 35px 8%;
+  background: #263E3B;
+  color: white;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+footer p, footer a {
+  color: #D0E5E0;
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+footer .brand span { color: var(--pink); }
+
+@media (max-width: 800px) {
+  header { padding: 15px 5%; }
+  nav { gap: 12px; }
+  nav a:not(.button) { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 45px 7%; }
+  .hero-art { min-height: 230px; }
+  .profile-layout { grid-template-columns: 1fr; }
+  .benefits { grid-template-columns: 1fr; }
+  .results { position: static; }
+}
+
+@media (max-width: 560px) {
+  .brand { font-size: 21px; }
+  .search-section { padding: 17px; }
+  .search-form { flex-wrap: wrap; }
+  .search-form button { width: 100%; }
+  .product-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .product-card { padding: 12px; }
+  .product-art { min-height: 95px; }
+  .check-grid { grid-template-columns: 1fr; }
+  .contact-box { flex-direction: column; align-items: flex-start; padding: 24px; }
+}
+
+@media (max-width: 360px) {
+  .product-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+  YOUR SKIN IS OUR PLANET · THOUGHTFUL CARE, EVERY DAY
+</div>
+
+<header>
+  <a class="brand" href="#home" style="text-decoration:none">
+    SKIN <span>LAB.</span>
+  </a>
+  <nav>
+    <a href="#about">Our philosophy</a>
+    <a href="#search">Find products</a>
+    <a href="#personalize">Your skin profile</a>
+    <a href="#contact" class="button secondary">Contact us ↗</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <div class="eyebrow">Thoughtful skincare, made personal</div>
+    <h1>Your skin.<br>Your needs.<br><em>Your own ritual.</em></h1>
+    <p>
+      Chăm sóc da bắt đầu từ việc thấu hiểu làn da của bạn.
+      Khám phá sản phẩm dựa trên loại da, nhu cầu, ngân sách
+      và các thành phần bạn muốn tránh cùng Skin Lab.
+    </p>
+    <div class="hero-actions">
+      <a href="#search" class="button primary">Find your match ↗</a>
+      <a href="#personalize" class="button secondary">Personalize my routine</a>
+    </div>
+  </div>
+
+  <div class="hero-art" aria-label="Minh họa mỹ phẩm và thiên nhiên">
+    <div class="big-emoji">🧴🌿</div>
+    <div class="art-note">CARE FOR YOUR SKIN, CARE FOR EARTH</div>
+  </div>
+</section>
+
+<!-- DYNAMIC PRODUCT SEARCH -->
+<section class="section" id="search">
+  <div class="section-heading">
+    <div class="eyebrow">Your personalized discovery</div>
+    <h2>What does your skin need?</h2>
+    <p>
+      Tìm kiếm theo loại da, công dụng hoặc tên sản phẩm.
+      Website sẽ tự động lọc danh mục theo từ khóa của bạn.
+    </p>
+  </div>
+
+  <div class="search-section">
+    <form id="searchForm" class="search-form">
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input
+        type="search"
+        id="searchInput"
+        placeholder="Ví dụ: serum cho da dầu, da mụn..."
+        aria-label="Tìm sản phẩm chăm sóc da"
+        autocomplete="off"
+        required
+      >
+      <button type="submit">Search ↗</button>
+    </form>
+
+    <div class="suggestions">
+      <span>Try searching:</span>
+      <button type="button" class="chip" data-query="da dầu">Da dầu</button>
+      <button type="button" class="chip" data-query="da mụn">Da mụn</button>
+      <button type="button" class="chip" data-query="serum">Serum</button>
+      <button type="button" class="chip" data-query="toner cấp ẩm">Toner cấp ẩm</button>
+      <button type="button" class="chip" data-query="sữa rửa mặt">Sữa rửa mặt</button>
+      <button type="button" class="chip" data-query="da nhạy cảm">Da nhạy cảm</button>
+    </div>
+
+    <div id="searchResults" aria-live="polite">
+      <div class="placeholder">
+        <span>🌷</span>
+        <p>Nhập từ khóa và nhấn Enter để khám phá sản phẩm phù hợp.</p>
+      </div>
+    </div>
+
+    <p class="small-note">
+      Các kết quả là gợi ý dựa trên danh mục và quy tắc được lập trình,
+      không phải chẩn đoán da liễu hoặc xác nhận sản phẩm an toàn
+      với người có dị ứng.
+    </p>
+  </div>
+</section>
+
+<!-- CUSTOMER DATA COLLECTION -->
+<section class="section" id="personalize">
+  <div class="section-heading">
+    <div class="eyebrow">Get to know your skin</div>
+    <h2>Your skin, your story.</h2>
+    <p>
+      Chia sẻ các tiêu chí của bạn để website điều chỉnh thông điệp
+      và hiển thị những sản phẩm phù hợp với lựa chọn đó.
+    </p>
+  </div>
+
+  <div class="profile-layout">
+
+    <form id="profileForm" class="card">
+      <h3>Your skin profile</h3>
+      <p class="form-intro">
+        Các trường bên dưới được sử dụng để minh họa cách
+        Dynamic Content cá nhân hóa trải nghiệm.
+      </p>
+
+      <div class="field">
+        <label for="age">1. Độ tuổi của bạn</label>
+        <select id="age" required>
+          <option value="">Chọn nhóm tuổi</option>
+          <option value="under18">Dưới 18 tuổi</option>
+          <option value="18-24">18–24 tuổi</option>
+          <option value="25-34">25–34 tuổi</option>
+          <option value="35-44">35–44 tuổi</option>
+          <option value="45plus">45 tuổi trở lên</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="skin">2. Loại da của bạn</label>
+        <select id="skin" required>
+          <option value="">Chọn loại da</option>
+          <option value="oily">Da dầu</option>
+          <option value="dry">Da khô</option>
+          <option value="combination">Da hỗn hợp</option>
+          <option value="normal">Da thường</option>
+          <option value="sensitive">Da nhạy cảm</option>
+          <option value="unsure">Chưa xác định được</option>
+        </select>
+      </div>
+
+      <fieldset class="field">
+        <legend>3. Bạn mong muốn công dụng nào?</legend>
+        <div class="check-grid">
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="hydration">
+            Cấp ẩm
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="clean">
+            Làm sạch
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="oil">
+            Kiểm soát dầu
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="glow">
+            Da rạng rỡ
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="soothe">
+            Làm dịu da
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="benefit" value="acne">
+            Hỗ trợ chăm sóc da mụn
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="field">
+        <legend>4. Loại sản phẩm bạn đang tìm</legend>
+        <div class="check-grid">
+          <label class="check-option">
+            <input type="checkbox" name="kind" value="cleanser">
+            Sữa rửa mặt
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="kind" value="serum">
+            Serum
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="kind" value="toner">
+            Toner
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="kind" value="mask">
+            Mặt nạ
+          </label>
+          <label class="check-option">
+            <input type="checkbox" name="kind" value="essence">
+            Essence
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="budget">5. Ngân sách mỗi sản phẩm</label>
+        <select id="budget" required>
+          <option value="">Chọn ngân sách</option>
+          <option value="under150">Dưới 150.000đ</option>
+          <option value="150-300">150.000–300.000đ</option>
+          <option value="300-500">300.000–500.000đ</option>
+          <option value="over500">Trên 500.000đ</option>
+          <option value="any">Linh hoạt</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="allergies">
+          6. Thành phần bạn bị dị ứng hoặc muốn tránh
+        </label>
+        <textarea id="allergies" rows="3"
+          placeholder="Ví dụ: hương liệu, tinh dầu..."></textarea>
+        <span class="help">
+          Chỉ chia sẻ thông tin bạn thấy thoải mái. Đây không phải
+          công cụ xác định dị ứng; vui lòng kiểm tra danh sách INCI
+          chính thức và hỏi chuyên gia y tế khi cần.
+        </span>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" id="consent" required>
+        <span>
+          Tôi đồng ý sử dụng các lựa chọn trên để tạo gợi ý trong
+          phiên demo này. Đây là website minh họa, không gửi dữ liệu
+          lên máy chủ. Tôi hiểu rằng thông tin dị ứng cần được kiểm tra
+          cẩn thận và kết quả không phải tư vấn y tế.
+        </span>
+      </label>
+
+      <button class="button primary full" type="submit" style="margin-top:22px">
+        Discover my skincare match →
+      </button>
+
+      <p class="status" id="profileStatus" role="status"></p>
+    </form>
+
+    <!-- PERSONALIZED CONTENT OUTPUT -->
+    <aside class="card" id="recommendation">
+      <div class="eyebrow">Curated for you</div>
+      <h2 id="resultTitle">Your skin, your story.</h2>
+      <p id="resultDescription" class="form-intro">
+        Hoàn thành hồ sơ để xem nội dung và sản phẩm được cá nhân hóa.
+      </p>
+
+      <div id="profileTags" class="profile-tags"></div>
+
+      <div class="result-banner">
+        <div class="eyebrow">Your skin ritual</div>
+        <h3 id="bannerTitle">Small steps. Thoughtful care.</h3>
+        <p id="bannerDescription">
+          Những gợi ý sẽ thay đổi theo nhu cầu bạn cung cấp.
+        </p>
+      </div>
+
+      <div id="personalProducts">
+        <div class="placeholder">
+          🌸<br>Gợi ý dành riêng cho bạn sẽ xuất hiện ở đây.
+        </div>
+      </div>
+
+      <p class="small-note">
+        Dữ liệu sản phẩm và giá là giả lập. Việc sản phẩm được hiển thị
+        không có nghĩa là phù hợp về mặt y khoa hoặc an toàn với mọi người.
+      </p>
+
+      <button type="button" id="resetProfile" class="button secondary full">
+        Reset my preferences
+      </button>
+    </aside>
+  </div>
+</section>
+
+<!-- BRAND BENEFITS -->
+<section class="section" id="about">
+  <div class="section-heading">
+    <div class="eyebrow">The Skin Lab difference</div>
+    <h2>Care that starts with listening.</h2>
+    <p>Chăm sóc cá nhân hóa bắt đầu từ việc hiểu điều khách hàng thực sự tìm kiếm.</p>
+  </div>
+
+  <div class="benefits">
+    <article class="benefit-card">
+      <div class="emoji">🌸</div>
+      <h3>Made personal</h3>
+      <p>Nội dung và gợi ý sản phẩm thay đổi theo hồ sơ và nhu cầu khách hàng.</p>
+    </article>
+    <article class="benefit-card">
+      <div class="emoji">🫧</div>
+      <h3>Thoughtful choices</h3>
+      <p>Hỗ trợ khách khám phá danh mục theo loại sản phẩm, ngân sách và mục tiêu.</p>
+    </article>
+    <article class="benefit-card">
+      <div class="emoji">🌍</div>
+      <h3>Our planet, too</h3>
+      <p>Khuyến khích lựa chọn có cân nhắc, sử dụng sản phẩm hợp lý và hạn chế lãng phí.</p>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="contact-box">
+    <div>
+      <div class="eyebrow">Let's connect</div>
+      <h2>Let's talk skincare.</h2>
+      <p>
+        Skin Lab — Your skin is our planet.<br>
+        Website: www.skinlab.com<br>
+        Hotline: +84 900 123 456<br>
+        Email: hello@skinlab.com
+      </p>
+      <p class="small-note">
+        Tên miền và thông tin liên hệ là dữ liệu minh họa,
+        chưa được xác minh là kênh liên hệ thực tế.
+      </p>
+    </div>
+
+    <a class="button primary"
+       href="mailto:hello@skinlab.com?subject=Skin%20Lab%20Inquiry">
+      Contact Skin Lab ↗
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="brand">SKIN <span>LAB.</span></div>
+      <p>Your skin is our planet.</p>
+    </div>
+    <div>
+      <p>www.skinlab.com</p>
+      <p>+84 900 123 456</p>
+      <p>hello@skinlab.com</p>
+    </div>
+  </div>
+  <p>© 2026 Skin Lab. Educational demo only.</p>
+</footer>
+
+<script>
+"use strict";
+
+/* =========================================
+   1. DATA CATALOG
+   Sản phẩm và thành phần là dữ liệu giả lập.
+========================================= */
+
+const products = [
+  {
+    id: "p1",
+    name: "Cloud Gentle Cleanser",
+    kind: "cleanser",
+    price: 129000,
+    emoji: "🫧",
+    skins: ["oily", "combination", "normal", "sensitive", "unsure"],
+    benefits: ["clean", "oil"],
+    ingredients: ["fragrance"],
+    description: "Sữa rửa mặt minh họa cho nhu cầu làm sạch."
+  },
+  {
+    id: "p2",
+    name: "Dewy Hydration Serum",
+    kind: "serum",
+    price: 279000,
+    emoji: "💧",
+    skins: ["dry", "normal", "combination", "sensitive", "unsure"],
+    benefits: ["hydration", "glow", "soothe"],
+    ingredients: [],
+    description: "Serum minh họa cho nhu cầu cấp ẩm."
+  },
+  {
+    id: "p3",
+    name: "Fresh Balance Toner",
+    kind: "toner",
+    price: 179000,
+    emoji: "🌿",
+    skins: ["oily", "combination", "normal", "unsure"],
+    benefits: ["oil", "clean"],
+    ingredients: ["fragrance"],
+    description: "Toner minh họa cho nhu cầu làm sạch và kiểm soát dầu."
+  },
+  {
+    id: "p4",
+    name: "Pink Calm Mask",
+    kind: "mask",
+    price: 99000,
+    emoji: "🌸",
+    skins: ["dry", "normal", "combination", "sensitive", "unsure"],
+    benefits: ["hydration", "soothe", "glow"],
+    ingredients: ["fragrance"],
+    description: "Mặt nạ minh họa cho nhu cầu cấp ẩm."
+  },
+  {
+    id: "p5",
+    name: "Aqua Essence",
+    kind: "essence",
+    price: 329000,
+    emoji: "🩵",
+    skins: ["dry", "normal", "combination", "sensitive", "unsure"],
+    benefits: ["hydration", "glow"],
+    ingredients: [],
+    description: "Essence minh họa cho nhu cầu dưỡng ẩm."
+  },
+  {
+    id: "p6",
+    name: "Clear Day Serum",
+    kind: "serum",
+    price: 249000,
+    emoji: "🍃",
+    skins: ["oily", "combination", "normal", "unsure"],
+    benefits: ["oil", "acne"],
+    ingredients: ["essential-oil"],
+    description: "Serum minh họa cho nhu cầu chăm sóc da dầu, da mụn."
+  },
+  {
+    id: "p7",
+    name: "Soft Moisture Mask",
+    kind: "mask",
+    price: 199000,
+    emoji: "🩷",
+    skins: ["dry", "normal", "sensitive", "unsure"],
+    benefits: ["hydration", "soothe"],
+    ingredients: [],
+    description: "Mặt nạ minh họa cho nhu cầu dưỡng ẩm."
+  },
+  {
+    id: "p8",
+    name: "Daily Glow Essence",
+    kind: "essence",
+    price: 459000,
+    emoji: "✨",
+    skins: ["dry", "normal", "combination", "unsure"],
+    benefits: ["glow", "hydration"],
+    ingredients: ["fragrance"],
+    description: "Essence minh họa cho nhu cầu dưỡng ẩm, da rạng rỡ."
+  },
+  {
+    id: "p9",
+    name: "Gentle Foam Wash",
+    kind: "cleanser",
+    price: 89000,
+    emoji: "☁️",
+    skins: ["dry", "normal", "sensitive", "unsure"],
+    benefits: ["clean", "soothe"],
+    ingredients: [],
+    description: "Sữa rửa mặt minh họa cho nhu cầu làm sạch nhẹ nhàng."
+  },
+  {
+    id: "p10",
+    name: "Hydra Comfort Toner",
+    kind: "toner",
+    price: 239000,
+    emoji: "💦",
+    skins: ["dry", "normal", "combination", "sensitive", "unsure"],
+    benefits: ["hydration", "soothe"],
+    ingredients: [],
+    description: "Toner minh họa cho nhu cầu cấp ẩm."
+  },
+  {
+    id: "p11",
+    name: "Clear Balance Cleanser",
+    kind: "cleanser",
+    price: 149000,
+    emoji: "🧼",
+    skins: ["oily", "combination", "unsure"],
+    benefits: ["clean", "oil", "acne"],
+    ingredients: [],
+    description: "Sữa rửa mặt minh họa cho nhu cầu làm sạch da dầu."
+  },
+  {
+    id: "p12",
+    name: "Calm Skin Essence",
+    kind: "essence",
+    price: 289000,
+    emoji: "🌷",
+    skins: ["dry", "normal", "sensitive", "combination", "unsure"],
+    benefits: ["hydration", "soothe"],
+    ingredients: [],
+    description: "Essence minh họa cho nhu cầu cấp ẩm và làm dịu."
+  }
+];
+
+const kindNames = {
+  cleanser: "Sữa rửa mặt",
+  serum: "Serum",
+  toner: "Toner",
+  mask: "Mặt nạ",
+  essence: "Essence"
+};
+
+const skinNames = {
+  oily: "da dầu",
+  dry: "da khô",
+  combination: "da hỗn hợp",
+  normal: "da thường",
+  sensitive: "da nhạy cảm",
+  unsure: "chưa xác định loại da"
+};
+
+const ageNames = {
+  under18: "Dưới 18 tuổi",
+  "18-24": "18–24 tuổi",
+  "25-34": "25–34 tuổi",
+  "35-44": "35–44 tuổi",
+  "45plus": "45 tuổi trở lên"
+};
+
+const benefitNames = {
+  hydration: "cấp ẩm",
+  clean: "làm sạch",
+  oil: "kiểm soát dầu",
+  glow: "da rạng rỡ",
+  soothe: "làm dịu da",
+  acne: "chăm sóc da mụn"
+};
+
+const budgetNames = {
+  under150: "Dưới 150.000đ",
+  "150-300": "150.000–300.000đ",
+  "300-500": "300.000–500.000đ",
+  over500: "Trên 500.000đ",
+  any: "Linh hoạt"
+};
+
+const budgetRanges = {
+  under150: [0, 150000],
+  "150-300": [150000, 300000],
+  "300-500": [300000, 500000],
+  over500: [500000, Infinity],
+  any: [0, Infinity]
+};
+
+const $ = id => document.getElementById(id);
+
+function money(value) {
+  return new Intl.NumberFormat("vi-VN").format(value) + "đ";
+}
+
+function normalize(text) {
+  return String(text)
+    .toLocaleLowerCase("vi")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/đ/g, "d")
+    .trim();
+}
+
+function escapeHTML(text) {
+  return String(text).replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+/* =========================================
+   2. SEARCH QUERY ANALYSIS
+========================================= */
+
+function analyzeQuery(query) {
+  const q = normalize(query);
+  const criteria = {
+    skin: null,
+    benefits: [],
+    kind: null,
+    budget: null
+  };
+
+  if (/\b(da dau|dau nhieu|bong dau|oily skin)\b/.test(q)) {
+    criteria.skin = "oily";
+  } else if (/\b(da kho|kho da|dry skin)\b/.test(q)) {
+    criteria.skin = "dry";
+  } else if (/\b(da hon hop|hon hop)\b/.test(q)) {
+    criteria.skin = "combination";
+  } else if (/\b(da nhay cam|nhay cam|sensitive skin)\b/.test(q)) {
+    criteria.skin = "sensitive";
+  } else if (/\b(da thuong|normal skin)\b/.test(q)) {
+    criteria.skin = "normal";
+  }
+
+  // Từ khóa "da mụn" là nhu cầu chăm sóc da mụn,
+  // không phải chẩn đoán tình trạng da.
+  if (/\b(da mun|mun|acne|breakout)\b/.test(q)) {
+    criteria.benefits.push("acne");
+  }
+
+  if (/\b(kiem soat dau|giam dau|oil control|bong nhon)\b/.test(q)) {
+    criteria.benefits.push("oil");
+  }
+
+  if (/\b(cap am|duong am|hydration|moisturizing)\b/.test(q)) {
+    criteria.benefits.push("hydration");
+  }
+
+  if (/\b(lam sach|sach da|cleanser|face wash)\b/.test(q)) {
+    criteria.benefits.push("clean");
+  }
+
+  if (/\b(lam diu|diu da|soothing|calming)\b/.test(q)) {
+    criteria.benefits.push("soothe");
+  }
+
+  if (/\b(lam sang|sang da|rang ro|glow|brightening)\b/.test(q)) {
+    criteria.benefits.push("glow");
+  }
+
+  if (criteria.skin === "oily" && !criteria.benefits.includes("oil")) {
+    criteria.benefits.push("oil");
+  }
+
+  if (/\b(sua rua mat|srm|cleanser|face wash)\b/.test(q)) {
+    criteria.kind = "cleanser";
+  } else if (/\b(serum|tinh chat)\b/.test(q)) {
+    criteria.kind = "serum";
+  } else if (/\b(toner|nuoc hoa hong)\b/.test(q)) {
+    criteria.kind = "toner";
+  } else if (/\b(mat na|mask)\b/.test(q)) {
+    criteria.kind = "mask";
+  } else if (/\b(essence)\b/.test(q)) {
+    criteria.kind = "essence";
+  }
+
+  if (/\b(duoi 150|under 150)\b/.test(q)) {
+    criteria.budget = "under150";
+  } else if (/\b(150 den 300|150-300)\b/.test(q)) {
+    criteria.budget = "150-300";
+  } else if (/\b(300 den 500|300-500)\b/.test(q)) {
+    criteria.budget = "300-500";
+  } else if (/\b(tren 500|over 500)\b/.test(q)) {
+    criteria.budget = "over500";
+  }
+
+  return criteria;
+}
+
+/* =========================================
+   3. ALLERGY / INGREDIENT EXCLUSION
+   This is only a simple demo keyword matcher.
+========================================= */
+
+function parseAvoidIngredients(raw) {
+  const q = normalize(raw);
+  const tags = [];
+
+  if (/\b(fragrance|perfume|huong lieu|nuoc hoa)\b/.test(q)) {
+    tags.push("fragrance");
+  }
+
+  if (/\b(essential oil|tinh dau)\b/.test(q)) {
+    tags.push("essential-oil");
+  }
+
+  return tags;
+}
+
+/* =========================================
+   4. PRODUCT MATCHING ENGINE
+========================================= */
+
+function scoreProduct(product, criteria, avoidTags = []) {
+  // Không gợi ý sản phẩm có tag trùng thành phần cần tránh.
+  if (product.ingredients.some(tag => avoidTags.includes(tag))) {
+    return -1;
+  }
+
+  let score = 0;
+
+  if (criteria.kind) {
+    if (product.kind !== criteria.kind) return -1;
+    score += 5;
+  }
+
+  if (criteria.skin) {
+    if (!product.skins.includes(criteria.skin)) return -1;
+    score += 4;
+  }
+
+  if (criteria.benefits.length) {
+    const matches = criteria.benefits.filter(
+      benefit => product.benefits.includes(benefit)
+    );
+
+    if (matches.length === 0) return -1;
+    score += matches.length * 3;
+  }
+
+  if (criteria.budget && budgetRanges[criteria.budget]) {
+    const [min, max] = budgetRanges[criteria.budget];
+
+    if (product.price < min || product.price >= max) return -1;
+    score += 2;
+  }
+
+  return score;
+}
+
+function getMatchingProducts(criteria, avoidTags = []) {
+  return products
+    .map(product => ({
+      product,
+      score: scoreProduct(product, criteria, avoidTags)
+    }))
+    .filter(item => item.score > 0)
+    .sort((a, b) => b.score - a.score);
+}
+
+/* =========================================
+   5. SAFE PRODUCT CARD RENDERING
+========================================= */
+
+function productCardHTML(product, mode = "search") {
+  const name = escapeHTML(product.name);
+  const description = escapeHTML(product.description);
+
+  return `
+    <article class="product-card">
+      <div class="product-art" aria-hidden="true">
+        ${product.emoji}
+      </div>
+      <h4>${name}</h4>
+      <p>${escapeHTML(kindNames[product.kind])}</p>
+      <p>${description}</p>
+      <div class="product-price">${money(product.price)}</div>
+      <button
+        type="button"
+        class="button pink-button full"
+        data-product-action="${escapeHTML(product.id)}"
+        data-mode="${mode}">
+        ${mode === "search" ? "Explore my routine ↗" : "View interest ↗"}
+      </button>
+    </article>
+  `;
+}
+
+function renderProductGrid(container, matches, mode) {
+  if (!matches.length) {
+    container.innerHTML = `
+      <div class="empty">
+        <strong>Chưa tìm thấy sản phẩm phù hợp.</strong>
+        <p>Thử điều chỉnh tiêu chí hoặc tìm kiếm bằng từ khóa khác.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = `
+    <div class="product-grid">
+      ${matches.map(item =>
+        productCardHTML(item.product || item, mode)
+      ).join("")}
+    </div>
+  `;
+
+  container.querySelectorAll("[data-product-action]").forEach(button => {
+    button.addEventListener("click", () => {
+      const product = products.find(
+        item => item.id === button.dataset.productAction
+      );
+
+      if (!product) return;
+
+      if (button.dataset.mode === "search") {
+        // Đưa loại sản phẩm đã chọn vào biểu mẫu.
+        document.querySelectorAll('input[name="kind"]').forEach(input => {
+          input.checked = input.value === product.kind;
+        });
+
+        $("profileStatus").textContent =
+          `Đã chọn ${product.name}. Hoàn thành hồ sơ để cá nhân hóa gợi ý.`;
+
+        $("personalize").scrollIntoView({ behavior: "smooth" });
+      } else {
+        $("profileStatus").textContent =
+          `Bạn đã quan tâm đến ${product.name}.`;
+      }
+    });
+  });
+}
+
+/* =========================================
+   6. DYNAMIC SEARCH
+========================================= */
+
+function searchProducts(query) {
+  const criteria = analyzeQuery(query);
+  const matches = getMatchingProducts(criteria);
+
+  $("searchResults").innerHTML = "";
+
+  const heading = document.createElement("div");
+  heading.className = "results-heading";
+
+  const title = document.createElement("h3");
+  title.textContent = `Kết quả cho "${query}"`;
+
+  const count = document.createElement("p");
+  count.textContent = `${matches.length} sản phẩm phù hợp`;
+
+  heading.append(title, count);
+  $("searchResults").appendChild(heading);
+
+  const description = document.createElement("p");
+  description.className = "form-intro";
+
+  const recognized = [];
+  if (criteria.skin) recognized.push("loại da: " + skinNames[criteria.skin]);
+  if (criteria.kind) recognized.push("loại sản phẩm: " + kindNames[criteria.kind]);
+  if (criteria.benefits.length) {
+    recognized.push("công dụng: " + criteria.benefits.map(
+      benefit => benefitNames[benefit]
+    ).join(", "));
+  }
+  if (criteria.budget) recognized.push("ngân sách: " + budgetNames[criteria.budget]);
+
+  description.textContent = recognized.length
+    ? "Website nhận diện " + recognized.join("; ") + "."
+    : "Website đang tìm các sản phẩm có đặc điểm liên quan đến từ khóa của bạn.";
+
+  $("searchResults").appendChild(description);
+
+  const container = document.createElement("div");
+  $("searchResults").appendChild(container);
+  renderProductGrid(container, matches, "search");
+
+  const note = document.createElement("p");
+  note.className = "small-note";
+  note.textContent =
+    "Kết quả dựa trên tag và quy tắc trong danh mục demo, không phải chẩn đoán da liễu.";
+  $("searchResults").appendChild(note);
+}
+
+$("searchForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  const query = $("searchInput").value.trim();
+  if (!query) return;
+
+  searchProducts(query);
+});
+
+document.querySelectorAll("[data-query]").forEach(button => {
+  button.addEventListener("click", () => {
+    $("searchInput").value = button.dataset.query;
+    $("searchForm").requestSubmit();
+  });
+});
+
+/* =========================================
+   7. CUSTOMER PROFILE / DYNAMIC CONTENT
+========================================= */
+
+function getProfile() {
+  return {
+    age: $("age").value,
+    skin: $("skin").value,
+    benefits: [...document.querySelectorAll(
+      'input[name="benefit"]:checked'
+    )].map(input => input.value),
+    kinds: [...document.querySelectorAll(
+      'input[name="kind"]:checked'
+    )].map(input => input.value),
+    budget: $("budget").value,
+    allergies: $("allergies").value.trim()
+  };
+}
+
+function getProfileMatches(profile) {
+  const avoidTags = parseAvoidIngredients(profile.allergies);
+  const [min, max] = budgetRanges[profile.budget];
+
+  const criteria = {
+    skin: profile.skin,
+    benefits: profile.benefits,
+    kind: null,
+    budget: profile.budget
+  };
+
+  let matches = products.filter(product => {
+    if (!product.skins.includes(profile.skin)) return false;
+    if (product.price < min || product.price >= max) return false;
+
+    if (profile.kinds.length &&
+        !profile.kinds.includes(product.kind)) {
+      return false;
+    }
+
+    if (product.ingredients.some(tag => avoidTags.includes(tag))) {
+      return false;
+    }
+
+    return true;
+  });
+
+  // Nếu không có kết quả, không tự ý bỏ qua ngân sách,
+  // loại da, loại sản phẩm hoặc điều kiện tránh thành phần.
+  return matches.map(product => ({
+    product,
+    score: scoreProduct(product, criteria, avoidTags)
+  }))
+  .sort((a, b) => b.score - a.score);
+}
+
+function updateDynamicContent(profile) {
+  $("resultTitle").textContent = "Your routine, your way.";
+
+  $("resultDescription").textContent =
+    `Gợi ý cho nhóm tuổi ${ageNames[profile.age]}, ` +
+    `với loại da ${skinNames[profile.skin]}.`;
+
+  let headline = "Thoughtful care, made personal.";
+  let message = "Khám phá những lựa chọn phù hợp với nhu cầu của bạn.";
+
+  if (profile.skin === "oily") {
+    headline = "Light textures. Thoughtful care.";
+    message = "Khám phá các lựa chọn dành cho nhu cầu chăm sóc da dầu.";
+  } else if (profile.skin === "dry") {
+    headline = "Comfort and hydration.";
+    message = "Ưu tiên những lựa chọn phù hợp với nhu cầu dưỡng ẩm.";
+  } else if (profile.skin === "sensitive") {
+    headline = "Gentle choices, mindful routines.";
+    message = "Hãy kiểm tra kỹ bảng thành phần trước khi sử dụng sản phẩm.";
+  } else if (profile.skin === "combination") {
+    headline = "Balance your skincare ritual.";
+    message = "Khám phá những lựa chọn cho nhu cầu chăm sóc da hỗn hợp.";
+  }
+
+  $("bannerTitle").textContent = headline;
+  $("bannerDescription").textContent = message;
+
+  const tags = [
+    ageNames[profile.age],
+    skinNames[profile.skin],
+    budgetNames[profile.budget],
+    ...profile.benefits.map(b => benefitNames[b]),
+    ...profile.kinds.map(k => kindNames[k])
+  ];
+
+  $("profileTags").innerHTML = tags
+    .map(tag => `<span class="profile-tag">${escapeHTML(tag)}</span>`)
+    .join("");
+
+  const matches = getProfileMatches(profile);
+  renderProductGrid($("personalProducts"), matches, "profile");
+
+  if (matches.length) {
+    $("profileStatus").textContent =
+      `Đã tìm thấy ${matches.length} sản phẩm theo các tiêu chí của bạn.`;
+  } else {
+    $("profileStatus").textContent =
+      "Chưa có sản phẩm phù hợp tất cả tiêu chí. Hãy thử điều chỉnh lựa chọn.";
+  }
+}
+
+$("profileForm").addEventListener("submit", event => {
+  event.preventDefault();
+
+  if (!$("consent").checked) {
+    $("profileStatus").textContent =
+      "Vui lòng xác nhận đồng ý sử dụng lựa chọn trong bản demo.";
+    return;
+  }
+
+  const profile = getProfile();
+
+  if (!profile.benefits.length) {
+    $("profileStatus").textContent =
+      "Vui lòng chọn ít nhất một công dụng mong muốn.";
+    return;
+  }
+
+  if (!profile.kinds.length) {
+    $("profileStatus").textContent =
+      "Vui lòng chọn ít nhất một loại sản phẩm.";
+    return;
+  }
+
+  updateDynamicContent(profile);
+
+  // Không lưu hồ sơ cá nhân hoặc nội dung trường dị ứng.
+  // Chỉ cập nhật kết quả trên trang hiện tại.
+  $("recommendation").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
+
+/* =========================================
+   8. RESET FORM
+========================================= */
+
+$("resetProfile").addEventListener("click", () => {
+  $("profileForm").reset();
+
+  $("resultTitle").textContent = "Your skin, your story.";
+  $("resultDescription").textContent =
+    "Hoàn thành hồ sơ để xem nội dung và sản phẩm được cá nhân hóa.";
+
+  $("bannerTitle").textContent = "Small steps. Thoughtful care.";
+  $("bannerDescription").textContent =
+    "Những gợi ý sẽ thay đổi theo nhu cầu bạn cung cấp.";
+
+  $("profileTags").innerHTML = "";
+  $("personalProducts").innerHTML = `
+    <div class="placeholder">
+      🌸<br>Gợi ý dành riêng cho bạn sẽ xuất hiện ở đây.
+    </div>
+  `;
+
+  $("profileStatus").textContent = "Đã xóa lựa chọn trên biểu mẫu.";
+});
+
+</script>
+</body>
+</html>
